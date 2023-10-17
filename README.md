@@ -1,3 +1,7 @@
+> [!WARNING]
+> Under-Customization
+> Not-Tested-Yet
+
 ###
 
 <div align="center"><img src="images/OpenCore.png" width="200" height="48"/> EFI</div>
