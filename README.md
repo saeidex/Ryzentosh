@@ -24,37 +24,18 @@
 
 ## Table Of Contents
 
-- [⚙️ Hardware](#-hardware)
-- [🖥️ Full Build](#-full-build)
-    - [CPU](#cpu)
-    - [MOTHERBOARD](#motherboard)
-    - [RAM](#ram)
-    - [SSD](#ssd)
-    - [HDD](#hdd)
-    - [CASING](#casing)
-    - [MONITOR](#monitor)
-    - [PSU](#psu)
-    - [MOUSE](#mouse)
-    - [KEYBOARD](#keyboard)
-- [🔧 BIOS](#-bios)
-- [🛠️ Functional](#-functional)
-- [🪚 Change it for youself](#-change-it-for-youself)
-- [🧰 Tools](#-tools)
-- [📃 Scripts](#-scripts)
-- [💡 Tips](#-tips)
-- [🏞️ Screenshot](#-screenshot)
+- [Hardware](#-hardware)
+- [BIOS](#-bios)
+- [Functional](#-functional)
+- [Change it for youself](#-change-it-for-youself)
+- [Tools](#-tools)
+- [Scripts](#-scripts)
+- [Tips](#-tips)
+- [Screenshot](#-screenshot)
 
 ##
 
-> **Warning**
->
-> Use at your own risk. I built this EFI for myself and it does not guarantee 100% work with your hardware.
->
-> MLB, ROM, Serial Number, SystemUUID sections are specifically left empty. Use GenSMBIOS to generate SMBios.
->
-> I recommend using an iMac20,1, if you are using an iGPU. Otherwise use [these](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#platforminfo)
-
-## ⚙️ Hardware
+## Hardware
 
 | **Category**     | **Component**               |
 | ---------------- | --------------------------- |
@@ -69,10 +50,8 @@
 | **LAN**          | REALTEK 2.5GbE LAN CHIP     |
 | **Wireless**     | INTEL Wi-Fi 6 AX200         |
 
-> **Note** \
-> Instead of dGPU, you can use iGPU in the processor thanks to NootedRed, but then you will have problems with DRM, iServices and sleep.
-
-## 🖥️ Full Build
+<details markdown="1">
+    <summary><b>Full Build</b></summary>
 
 #### CPU
 
@@ -195,10 +174,14 @@
     [No Data Found]
 ```
 
-## 🔧 BIOS
+</details>
+
+#
+
+## BIOS
 
 <details markdown="1">
-    <summary><b>🔌 Settings</b></summary>
+    <summary><b>Settings</b></summary>
 
 | **Component**                  | **Model**          |
 | ------------------------------ | ------------------ |
@@ -217,14 +200,16 @@
 > **Note**
 >
 > \*If you use iGPU, set minimum 512 mb. There may be artifacts on some PCs/laptops if 512 MB of VRAM is set. To prevent this from happening, you need to set at least 1 GB of VRAM
+>
+> **You can read more about the BIOS settings in [the guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#amd-bios-settings)**
 
 </details>
 
-**🏞️ More details of my settings can be found [here](https://imgur.com/a/Q2ssS6q)**
+<!-- **🏞️ More details of my settings can be found [here](https://imgur.com/a/Q2ssS6q)** -->
 
-**⚠️ You can read more about the BIOS settings in [the guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#amd-bios-settings)**
+#
 
-## 🛠️ Functional
+## Functional
 
 - [x] macOS Ventura thanks to [dortania](https://dortania.github.io/OpenCore-Install-Guide/)
 - [x] CPU by [AMD-Vanilla](https://github.com/AMD-OSX/AMD_Vanilla)
@@ -240,14 +225,16 @@
 >
 > If you use iGPU: iServices will not work. There are small graphical artifacts when working with browsers on the Chromium engine. The developer of NootedRed is aware of the problem. A crutch is built into the config, which reduces the number of graphic artifacts
 
-## 🪚 Change it for youself
+#
+
+## Change it for youself
 
 Edit the core count patch to match your CPU
 
 See [AMD Vanilla OpenCore](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) or [OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Install-Guide/extras/ventura.html#amd-patches)
 
 <details>
-    <summary>📖 Mini-Guide</summary>
+    <summary>Mini-Guide</summary>
     Find the three `algrey - Force cpuid_cores_per_package`
 
     - `kernel -> Patch -> 0  -> Replace` for macOS 10.13.x, 10.14.x
@@ -282,13 +269,18 @@ See [AMD Vanilla OpenCore](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) o
 
 </details>
 
-## 🧰 Tools
+#
 
+## Tools
+
+1. [OCAT](https://github.com/ic005k/OCAuxiliaryTools)
 1. [Hackintool](https://github.com/benbaker76/Hackintool)
-2. [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/)
-3. [CPU Name](https://github.com/corpnewt/CPU-Name)
+1. [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/)
+1. [CPU Name](https://github.com/corpnewt/CPU-Name)
 
-## 📃 Scripts
+#
+
+## Scripts
 
 > **Warning**
 >
@@ -296,15 +288,9 @@ See [AMD Vanilla OpenCore](https://github.com/AMD-OSX/AMD_Vanilla/tree/master) o
 > `sudo bash <name_script>.sh`
 
 1. **hostname.sh** - change the name of your computer's name or local hostname on Mac
-2. **clear-network-interfaces.sh** - helps to solve problems with en0 ethernet
+1. **clear-network-interfaces.sh** - helps to solve problems with en0 ethernet
 
-## 💡 Tips
+## Tips
 
 1. If you want to change the processor name, use [this](https://github.com/corpnewt/CPU-Name)
-2. If you have a 1-in-1 CPU and motherboard configuration like mine, you can use this config. If it is different, I advise you to assemble it yourself according to [the guide](https://dortania.github.io/OpenCore-Install-Guide/). This way you will spend less time solving problems and everything will work fine. 🫡
-
-## 🏞️ Screenshot
-
-![](https://i.imgur.com/qBf9Km2.png "macOS Ventura")
-![](https://i.imgur.com/fpN7SS7.png "macOS Ventura")
-![](https://i.imgur.com/y12giX0.png "macOS Ventura")
+1. If you have a 1-in-1 CPU and motherboard configuration like mine, you can use this config. If it is different, I advise you to assemble it yourself according to [the guide](https://dortania.github.io/OpenCore-Install-Guide/). This way you will spend less time solving problems and everything will work fine. 🫡
